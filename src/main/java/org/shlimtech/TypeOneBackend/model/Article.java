@@ -12,7 +12,7 @@ import java.util.List;
 public class Article {
 
     @Id
-    @Column(name = "articleId")
+    @Column(name = "article_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
@@ -22,10 +22,10 @@ public class Article {
     @Column(name = "text")
     private String text;
 
-    @Column(name = "currentLikes")
+    @Column(name = "current_likes")
     private int currentLikes;
 
-    @Column(name = "commentsCount")
+    @Column(name = "comments_count")
     private int commentsCount;
 
     @ToString.Exclude

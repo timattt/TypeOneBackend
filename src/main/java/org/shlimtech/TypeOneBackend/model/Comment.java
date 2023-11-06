@@ -11,7 +11,7 @@ import lombok.ToString;
 public class Comment {
 
     @Id
-    @Column(name = "commentId")
+    @Column(name = "comment_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
@@ -22,7 +22,7 @@ public class Comment {
     private String text;
 
     @ManyToOne
-    @JoinColumn(name = "articleId", referencedColumnName = "articleId")
+    @JoinColumn(name = "article_id", referencedColumnName = "article_id")
     private Article article;
 
 }
