@@ -34,4 +34,16 @@ public class ArticlesService {
         articlesRepository.save(articleMapper.articleDTOToArticle(article));
     }
 
+    @Transactional
+    public void like(int id) {
+        Article article = articlesRepository.getReferenceById(id);
+        article.setCurrentLikes(article.getCurrentLikes() + 1);
+    }
+
+    @Transactional
+    public void unlike(int id) {
+        Article article = articlesRepository.getReferenceById(id);
+        article.setCurrentLikes(article.getCurrentLikes() - 1);
+    }
+
 }

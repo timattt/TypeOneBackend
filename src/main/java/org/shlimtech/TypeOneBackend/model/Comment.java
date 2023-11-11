@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.ToString;
 
+import java.util.Date;
+
 @Entity
 @Table(name = "comment")
 @Data
@@ -24,5 +26,11 @@ public class Comment {
     @ManyToOne
     @JoinColumn(name = "article_id", referencedColumnName = "article_id")
     private Article article;
+
+    @Column(name = "likes_count")
+    private int likesCount;
+
+    @Column(name = "creation_date")
+    private Date creationDate;
 
 }

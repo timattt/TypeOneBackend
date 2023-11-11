@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.List;
+import java.util.Date;
 
 @Entity
 @Table(name = "article")
@@ -25,11 +26,11 @@ public class Article {
     @Column(name = "current_likes")
     private int currentLikes;
 
-    @Column(name = "comments_count")
-    private int commentsCount;
-
     @ToString.Exclude
     @OneToMany(mappedBy = "article")
     private List<Comment> comments;
+
+    @Column(name = "creation_date")
+    private Date creationDate;
 
 }

@@ -4,6 +4,7 @@ import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.shlimtech.TypeOneBackend.dto.CommentDTO;
 import org.shlimtech.TypeOneBackend.mapper.CommentMapper;
+import org.shlimtech.TypeOneBackend.model.Comment;
 import org.shlimtech.TypeOneBackend.repository.CommentsRepository;
 import org.springframework.stereotype.Service;
 
@@ -32,5 +33,14 @@ public class CommentsService {
         commentsRepository.save(commentMapper.commentDTOToComment(comment));
     }
 
-
+    @Transactional
+    public void like(int id) {
+        Comment comment = commentsRepository.getReferenceById(id);
+        comment.setLikesCount(comment.getLikesCount() + 1);
+    }
+    @Transactional
+    public void unlike(int id) {
+        Comment comment = commentsRepository.getReferenceById(id);
+        comment.setLikesCount(comment.getLikesCount() - 1);
+    }
 }

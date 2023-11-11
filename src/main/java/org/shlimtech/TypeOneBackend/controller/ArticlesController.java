@@ -34,10 +34,22 @@ public class ArticlesController {
         return ResponseEntity.ok().build();
     }
 
+    @PatchMapping("/like")
+    public ResponseEntity<?> like(@RequestParam int id) {
+        articlesService.like(id);
+        return ResponseEntity.ok().build();
+    }
+
+    @PatchMapping("/unlike")
+    public ResponseEntity<?> unlike(@RequestParam int id) {
+        articlesService.unlike(id);
+        return ResponseEntity.ok().build();
+    }
+
     @ExceptionHandler
     public ResponseEntity<?> handleException(Exception exception) {
         log.info(exception.getMessage());
-        return ResponseEntity.ok().build();
+        return ResponseEntity.badRequest().body(exception.getMessage());
     }
 
 }
