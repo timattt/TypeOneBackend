@@ -23,9 +23,9 @@ public class CommentsController {
     }
 
     @PostMapping
-    public ResponseEntity<?> addComment(@RequestBody CommentDTO comment) {
-        commentsService.add(comment);
-        return ResponseEntity.ok().build();
+    public ResponseEntity<CommentDTO> addComment(@RequestBody CommentDTO comment) {
+        CommentDTO res = commentsService.add(comment);
+        return ResponseEntity.ok(res);
     }
 
     @DeleteMapping("/{id}")
@@ -35,15 +35,15 @@ public class CommentsController {
     }
 
     @PatchMapping("/like")
-    public ResponseEntity<?> like(@RequestParam int id) {
-        commentsService.like(id);
-        return ResponseEntity.ok().build();
+    public ResponseEntity<CommentDTO> like(@RequestParam int id) {
+        CommentDTO res = commentsService.like(id);
+        return ResponseEntity.ok(res);
     }
 
     @PatchMapping("/unlike")
-    public ResponseEntity<?> unlike(@RequestParam int id) {
-        commentsService.unlike(id);
-        return ResponseEntity.ok().build();
+    public ResponseEntity<CommentDTO> unlike(@RequestParam int id) {
+        CommentDTO res = commentsService.unlike(id);
+        return ResponseEntity.ok(res);
     }
 
     @ExceptionHandler

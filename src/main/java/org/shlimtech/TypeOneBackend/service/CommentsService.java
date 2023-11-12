@@ -29,18 +29,20 @@ public class CommentsService {
     }
 
     @Transactional
-    public void add(CommentDTO comment) {
-        commentsRepository.save(commentMapper.commentDTOToComment(comment));
+    public CommentDTO add(CommentDTO comment) {
+        return commentMapper.commentToCommentDTO(commentsRepository.save(commentMapper.commentDTOToComment(comment)));
     }
 
     @Transactional
-    public void like(int id) {
+    public CommentDTO like(int id) {
         Comment comment = commentsRepository.getReferenceById(id);
         comment.setLikesCount(comment.getLikesCount() + 1);
+        return commentMapper.commentToCommentDTO(comment);
     }
     @Transactional
-    public void unlike(int id) {
+    public CommentDTO unlike(int id) {
         Comment comment = commentsRepository.getReferenceById(id);
         comment.setLikesCount(comment.getLikesCount() - 1);
+        return commentMapper.commentToCommentDTO(comment);
     }
 }

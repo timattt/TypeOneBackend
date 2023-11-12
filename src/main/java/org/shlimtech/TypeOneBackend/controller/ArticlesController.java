@@ -23,9 +23,9 @@ public class ArticlesController {
     }
 
     @PostMapping
-    public ResponseEntity<?> addArticle(@RequestBody ArticleDTO article) {
-        articlesService.add(article);
-        return ResponseEntity.ok().build();
+    public ResponseEntity<ArticleDTO> addArticle(@RequestBody ArticleDTO article) {
+        ArticleDTO res = articlesService.add(article);
+        return ResponseEntity.ok(res);
     }
 
     @DeleteMapping("/{id}")
@@ -35,15 +35,15 @@ public class ArticlesController {
     }
 
     @PatchMapping("/like")
-    public ResponseEntity<?> like(@RequestParam int id) {
-        articlesService.like(id);
-        return ResponseEntity.ok().build();
+    public ResponseEntity<ArticleDTO> like(@RequestParam int id) {
+        ArticleDTO res = articlesService.like(id);
+        return ResponseEntity.ok(res);
     }
 
     @PatchMapping("/unlike")
-    public ResponseEntity<?> unlike(@RequestParam int id) {
-        articlesService.unlike(id);
-        return ResponseEntity.ok().build();
+    public ResponseEntity<ArticleDTO> unlike(@RequestParam int id) {
+        ArticleDTO res = articlesService.unlike(id);
+        return ResponseEntity.ok(res);
     }
 
     @ExceptionHandler

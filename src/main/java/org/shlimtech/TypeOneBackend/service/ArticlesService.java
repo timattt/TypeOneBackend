@@ -30,20 +30,22 @@ public class ArticlesService {
     }
 
     @Transactional
-    public void add(ArticleDTO article) {
-        articlesRepository.save(articleMapper.articleDTOToArticle(article));
+    public ArticleDTO add(ArticleDTO article) {
+        return articleMapper.articleToArticleDTO(articlesRepository.save(articleMapper.articleDTOToArticle(article)));
     }
 
     @Transactional
-    public void like(int id) {
+    public ArticleDTO like(int id) {
         Article article = articlesRepository.getReferenceById(id);
         article.setCurrentLikes(article.getCurrentLikes() + 1);
+        return articleMapper.articleToArticleDTO(article);
     }
 
     @Transactional
-    public void unlike(int id) {
+    public ArticleDTO unlike(int id) {
         Article article = articlesRepository.getReferenceById(id);
         article.setCurrentLikes(article.getCurrentLikes() - 1);
+        return articleMapper.articleToArticleDTO(article);
     }
 
 }

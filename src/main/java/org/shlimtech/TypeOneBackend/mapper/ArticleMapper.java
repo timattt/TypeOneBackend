@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.shlimtech.TypeOneBackend.dto.ArticleDTO;
 import org.shlimtech.TypeOneBackend.model.Article;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -18,7 +17,7 @@ public class ArticleMapper {
         dto.setArticleId(article.getId());
         dto.setText(article.getText());
         dto.setTitle(article.getTitle());
-        dto.setCurrentLikes(article.getCurrentLikes());
+        dto.setLikesCount(article.getCurrentLikes());
         dto.setCreationDate(article.getCreationDate());
         return dto;
     }
@@ -28,7 +27,7 @@ public class ArticleMapper {
         article.setText(articleDTO.getText());
         article.setTitle(articleDTO.getTitle());
         article.setId(articleDTO.getArticleId());
-        article.setCurrentLikes(articleDTO.getCurrentLikes());
+        article.setCurrentLikes(articleDTO.getLikesCount());
         article.setCreationDate(articleDTO.getCreationDate());
         return article;
     }
