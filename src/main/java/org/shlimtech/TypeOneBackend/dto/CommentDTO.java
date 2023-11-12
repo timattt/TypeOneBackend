@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.security.Timestamp;
 import java.util.Date;
 
 @Data
@@ -15,7 +16,7 @@ public class CommentDTO {
     private int commentId;
     private String text;
     private String author;
-    private Date creationDate;
+    private Date creationTime;
     private int likesCount;
 
 }

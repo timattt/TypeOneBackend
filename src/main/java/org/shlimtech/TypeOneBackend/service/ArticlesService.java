@@ -6,7 +6,6 @@ import org.shlimtech.TypeOneBackend.dto.ArticleDTO;
 import org.shlimtech.TypeOneBackend.mapper.ArticleMapper;
 import org.shlimtech.TypeOneBackend.model.Article;
 import org.shlimtech.TypeOneBackend.repository.ArticlesRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

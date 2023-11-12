@@ -21,7 +21,7 @@ public class CommentMapper {
         dto.setText(comment.getText());
         dto.setArticleId(comment.getArticle().getId());
         dto.setLikesCount(comment.getLikesCount());
-        dto.setCreationDate(comment.getCreationDate());
+        dto.setCreationTime(comment.getCreationTime());
         return dto;
     }
 
@@ -32,7 +32,7 @@ public class CommentMapper {
         comment.setArticle(articlesRepository.getReferenceById(commentDTO.getArticleId()));
         comment.setId(commentDTO.getCommentId());
         comment.setLikesCount(commentDTO.getLikesCount());
-        comment.setCreationDate(commentDTO.getCreationDate());
+        comment.setCreationTime(commentDTO.getCreationTime());
         return comment;
     }
 

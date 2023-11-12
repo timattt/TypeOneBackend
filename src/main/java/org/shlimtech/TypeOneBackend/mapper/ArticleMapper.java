@@ -18,7 +18,7 @@ public class ArticleMapper {
         dto.setText(article.getText());
         dto.setTitle(article.getTitle());
         dto.setLikesCount(article.getCurrentLikes());
-        dto.setCreationDate(article.getCreationDate());
+        dto.setCreationTime(article.getCreationTime());
         return dto;
     }
 
@@ -28,7 +28,7 @@ public class ArticleMapper {
         article.setTitle(articleDTO.getTitle());
         article.setId(articleDTO.getArticleId());
         article.setCurrentLikes(articleDTO.getLikesCount());
-        article.setCreationDate(articleDTO.getCreationDate());
+        article.setCreationTime(articleDTO.getCreationTime());
         return article;
     }
 

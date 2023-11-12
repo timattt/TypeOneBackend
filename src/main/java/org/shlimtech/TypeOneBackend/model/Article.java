@@ -2,7 +2,9 @@ package org.shlimtech.TypeOneBackend.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 
+import java.security.Timestamp;
 import java.util.List;
 import java.util.Date;
 
@@ -30,7 +32,8 @@ public class Article {
     @OneToMany(mappedBy = "article")
     private List<Comment> comments;
 
-    @Column(name = "creation_date")
-    private Date creationDate;
+    @Column(name = "creation_time")
+    @CreationTimestamp
+    private Date creationTime;
 
 }

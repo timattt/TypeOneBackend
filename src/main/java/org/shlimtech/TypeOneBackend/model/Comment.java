@@ -3,7 +3,9 @@ package org.shlimtech.TypeOneBackend.model;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.ToString;
+import org.hibernate.annotations.CreationTimestamp;
 
+import java.security.Timestamp;
 import java.util.Date;
 
 @Entity
@@ -30,7 +32,8 @@ public class Comment {
     @Column(name = "likes_count")
     private int likesCount;
 
-    @Column(name = "creation_date")
-    private Date creationDate;
+    @Column(name = "creation_time")
+    @CreationTimestamp
+    private Date creationTime;
 
 }
