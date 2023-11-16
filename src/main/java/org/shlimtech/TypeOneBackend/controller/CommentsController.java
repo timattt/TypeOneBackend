@@ -34,14 +34,20 @@ public class CommentsController {
         return ResponseEntity.ok().build();
     }
 
-    @PatchMapping("/like")
-    public ResponseEntity<CommentDTO> like(@RequestParam int id) {
+    @PatchMapping
+    public ResponseEntity<CommentDTO> editContent(@RequestBody CommentDTO commentDTO) {
+        CommentDTO res = commentsService.editContent(commentDTO);
+        return ResponseEntity.ok(res);
+    }
+
+    @PatchMapping("/{id}/like")
+    public ResponseEntity<CommentDTO> like(@PathVariable int id) {
         CommentDTO res = commentsService.like(id);
         return ResponseEntity.ok(res);
     }
 
-    @PatchMapping("/unlike")
-    public ResponseEntity<CommentDTO> unlike(@RequestParam int id) {
+    @PatchMapping("/{id}/unlike")
+    public ResponseEntity<CommentDTO> unlike(@PathVariable int id) {
         CommentDTO res = commentsService.unlike(id);
         return ResponseEntity.ok(res);
     }

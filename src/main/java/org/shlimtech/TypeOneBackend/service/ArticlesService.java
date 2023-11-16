@@ -47,4 +47,12 @@ public class ArticlesService {
         return articleMapper.articleToArticleDTO(article);
     }
 
+    @Transactional
+    public ArticleDTO editContent(ArticleDTO articleDTO) {
+        Article article = articlesRepository.getReferenceById(articleDTO.getArticleId());
+        article.setText(articleDTO.getText());
+        article.setTitle(articleDTO.getTitle());
+        return articleMapper.articleToArticleDTO(article);
+    }
+
 }

@@ -45,4 +45,11 @@ public class CommentsService {
         comment.setLikesCount(comment.getLikesCount() - 1);
         return commentMapper.commentToCommentDTO(comment);
     }
+
+    @Transactional
+    public CommentDTO editContent(CommentDTO commentDTO) {
+        Comment comment = commentsRepository.getReferenceById(commentDTO.getCommentId());
+        comment.setText(commentDTO.getText());
+        return commentMapper.commentToCommentDTO(comment);
+    }
 }

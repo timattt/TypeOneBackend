@@ -34,14 +34,20 @@ public class ArticlesController {
         return ResponseEntity.ok().build();
     }
 
-    @PatchMapping("/like")
-    public ResponseEntity<ArticleDTO> like(@RequestParam int id) {
+    @PatchMapping
+    public ResponseEntity<ArticleDTO> editContent(@RequestBody ArticleDTO article) {
+        ArticleDTO res = articlesService.editContent(article);
+        return ResponseEntity.ok(res);
+    }
+
+    @PatchMapping("/{id}/like")
+    public ResponseEntity<ArticleDTO> like(@PathVariable int id) {
         ArticleDTO res = articlesService.like(id);
         return ResponseEntity.ok(res);
     }
 
-    @PatchMapping("/unlike")
-    public ResponseEntity<ArticleDTO> unlike(@RequestParam int id) {
+    @PatchMapping("/{id}/unlike")
+    public ResponseEntity<ArticleDTO> unlike(@PathVariable int id) {
         ArticleDTO res = articlesService.unlike(id);
         return ResponseEntity.ok(res);
     }

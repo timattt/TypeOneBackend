@@ -36,5 +36,4 @@ public class CommentMapper {
         return comment;
     }
 
-
 }
