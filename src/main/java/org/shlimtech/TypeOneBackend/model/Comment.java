@@ -5,7 +5,6 @@ import lombok.Data;
 import lombok.ToString;
 import org.hibernate.annotations.CreationTimestamp;
 
-import java.security.Timestamp;
 import java.util.Date;
 
 @Entity
@@ -18,9 +17,6 @@ public class Comment {
     @Column(name = "comment_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
-    @Column(name = "author")
-    private String author;
 
     @Column(name = "text")
     private String text;
@@ -35,5 +31,9 @@ public class Comment {
     @Column(name = "creation_time")
     @CreationTimestamp
     private Date creationTime;
+
+    @ManyToOne
+    @JoinColumn(name = "author_user_id", referencedColumnName = "user_id")
+    private User author;
 
 }

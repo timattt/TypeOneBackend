@@ -2,7 +2,6 @@ package org.shlimtech.TypeOneBackend.dto;
 
 import lombok.Data;
 
-import java.security.Timestamp;
 import java.util.Date;
 
 @Data
@@ -13,5 +12,6 @@ public class ArticleDTO {
     private String text;
     private int likesCount;
     private Date creationTime;
+    private int userId;
 
 }

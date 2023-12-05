@@ -19,6 +19,7 @@ public class ArticleMapper {
         dto.setTitle(article.getTitle());
         dto.setLikesCount(article.getCurrentLikes());
         dto.setCreationTime(article.getCreationTime());
+        dto.setUserId(article.getAuthor().getId());
         return dto;
     }
 

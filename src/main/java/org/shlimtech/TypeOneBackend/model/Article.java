@@ -1,12 +1,12 @@
 package org.shlimtech.TypeOneBackend.model;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.Data;
+import lombok.ToString;
 import org.hibernate.annotations.CreationTimestamp;
 
-import java.security.Timestamp;
-import java.util.List;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "article")
@@ -35,5 +35,9 @@ public class Article {
     @Column(name = "creation_time")
     @CreationTimestamp
     private Date creationTime;
+
+    @ManyToOne
+    @JoinColumn(name = "author_user_id", referencedColumnName = "user_id")
+    private User author;
 
 }
