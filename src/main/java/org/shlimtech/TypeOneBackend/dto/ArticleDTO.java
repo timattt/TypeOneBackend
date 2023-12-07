@@ -13,5 +13,6 @@ public class ArticleDTO {
     private int likesCount;
     private Date creationTime;
     private int userId;
+    private String author;
 
 }

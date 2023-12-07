@@ -22,6 +22,7 @@ public class CommentMapper {
         dto.setLikesCount(comment.getLikesCount());
         dto.setCreationTime(comment.getCreationTime());
         dto.setUserId(comment.getAuthor().getId());
+        dto.setAuthor(comment.getAuthor().getName());
         return dto;
     }
 
